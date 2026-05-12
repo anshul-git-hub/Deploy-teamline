@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, MapPin } from "lucide-react";
+import { company } from "@/lib/data";
 
 const links = [
   { to: "/", label: "Home" },
@@ -41,7 +42,14 @@ export function Navbar() {
         </button>
       </div>
       {open && (
-        <nav className="md:hidden border-t border-cream/10 bg-forest-deep px-4 py-3 flex flex-col gap-3">
+        <nav className="md:hidden border-t border-cream/10 bg-forest-deep px-4 py-3 flex flex-col gap-3 animate-fade-in">
+          <div className="flex flex-wrap items-center gap-3 bg-cream/5 border border-cream/15 rounded-md px-3 py-2 text-xs text-cream/90">
+            <a href={`tel:${company.phoneRaw}`} className="inline-flex items-center gap-1 text-gold font-semibold">
+              <Phone size={14} /> {company.phone}
+            </a>
+            <span className="opacity-50">|</span>
+            <span className="inline-flex items-center gap-1"><MapPin size={14} /> Alair, Hyderabad–Warangal Highway</span>
+          </div>
           {links.map((l) => (
             <Link
               key={l.to}
