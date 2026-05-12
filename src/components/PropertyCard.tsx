@@ -1,5 +1,3 @@
-import { company } from "@/lib/data";
-
 interface Props {
   name: string;
   builtUp: string;
@@ -10,14 +8,12 @@ interface Props {
   imgId?: string;
   features?: string[];
   detailed?: boolean;
+  whatsappUrl: string;
 }
 
 export function PropertyCard({
-  name, builtUp, land, price, rental, badge, imgId, features, detailed,
+  name, builtUp, land, price, rental, badge, imgId, features, detailed, whatsappUrl,
 }: Props) {
-  const enquireMsg = encodeURIComponent(
-    `Hi, I'm interested in the ${name} at Team Line Eco Resort. Please share more details.`
-  );
   return (
     <article className="group relative flex flex-col rounded-xl bg-card border border-border shadow-sm overflow-hidden transition-all hover:border-gold hover:shadow-xl">
       {badge && (
@@ -37,9 +33,9 @@ export function PropertyCard({
           <div><span className="block text-xs">Built-up</span><span className="text-foreground font-medium">{builtUp}</span></div>
           <div><span className="block text-xs">Land</span><span className="text-foreground font-medium">{land}</span></div>
         </div>
-        <div className="mt-4 flex items-baseline justify-between">
-          <span className="text-2xl font-bold text-forest">{price}</span>
-          <span className="text-sm text-gold font-semibold">{rental}</span>
+        <div className="mt-4 flex items-baseline justify-between gap-3 flex-wrap">
+          <span className="text-2xl md:text-2xl font-extrabold text-forest">{price}</span>
+          <span className="text-base font-bold text-gold">{rental}</span>
         </div>
         {detailed && features && (
           <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
@@ -49,7 +45,7 @@ export function PropertyCard({
           </ul>
         )}
         <a
-          href={`https://wa.me/919494291924?text=${enquireMsg}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-flex justify-center rounded-md bg-forest text-cream font-semibold py-2.5 hover:bg-forest-deep transition-colors"

@@ -1,5 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
-import { company } from "@/lib/data";
+import { company, whatsappGeneralUrl } from "@/lib/data";
 
 export function FloatingActions() {
   return (
