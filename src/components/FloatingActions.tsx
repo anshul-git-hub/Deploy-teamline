@@ -14,7 +14,7 @@ export function FloatingActions() {
           <Phone size={24} />
         </a>
         <a
-          href={company.whatsapp}
+          href={whatsappGeneralUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:scale-105 transition-transform"
@@ -33,7 +33,7 @@ export function FloatingActions() {
           <Phone size={18} /> Call Now
         </a>
         <a
-          href={company.whatsapp}
+          href={whatsappGeneralUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-3 bg-green-500 text-white font-semibold"
