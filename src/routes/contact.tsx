@@ -21,11 +21,8 @@ function ContactPage() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text =
-      `New Enquiry — Team Line Eco Resort%0A` +
-      `Name: ${form.name}%0APhone: ${form.phone}%0AEmail: ${form.email}%0A` +
-      `Interested In: ${form.interest}%0AMessage: ${form.message}`;
-    window.open(`https://wa.me/919494291924?text=${text}`, "_blank");
+    const msg = `Hi Team Line, my name is ${form.name}. My number is ${form.phone}. I am interested in ${form.interest}. ${form.message}`;
+    window.open(`https://wa.me/919494291924?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
