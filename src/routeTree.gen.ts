@@ -10,15 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PropertiesRouteImport } from './routes/properties'
+import { Route as LuckyDrawRouteImport } from './routes/lucky-draw'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as AmenitiesRouteImport } from './routes/amenities'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
+import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
 
 const PropertiesRoute = PropertiesRouteImport.update({
   id: '/properties',
   path: '/properties',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LuckyDrawRoute = LuckyDrawRouteImport.update({
+  id: '/lucky-draw',
+  path: '/lucky-draw',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -29,6 +38,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AmenitiesRoute = AmenitiesRouteImport.update({
@@ -46,31 +60,52 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PropertiesIndexRoute = PropertiesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PropertiesRoute,
+} as any)
+const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => PropertiesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/amenities': typeof AmenitiesRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/properties': typeof PropertiesRoute
+  '/lucky-draw': typeof LuckyDrawRoute
+  '/properties': typeof PropertiesRouteWithChildren
+  '/properties/$slug': typeof PropertiesSlugRoute
+  '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/amenities': typeof AmenitiesRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/properties': typeof PropertiesRoute
+  '/lucky-draw': typeof LuckyDrawRoute
+  '/properties/$slug': typeof PropertiesSlugRoute
+  '/properties': typeof PropertiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/amenities': typeof AmenitiesRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
-  '/properties': typeof PropertiesRoute
+  '/lucky-draw': typeof LuckyDrawRoute
+  '/properties': typeof PropertiesRouteWithChildren
+  '/properties/$slug': typeof PropertiesSlugRoute
+  '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -78,28 +113,47 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/amenities'
+    | '/compare'
     | '/contact'
     | '/gallery'
+    | '/lucky-draw'
     | '/properties'
+    | '/properties/$slug'
+    | '/properties/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/amenities' | '/contact' | '/gallery' | '/properties'
+  to:
+    | '/'
+    | '/about'
+    | '/amenities'
+    | '/compare'
+    | '/contact'
+    | '/gallery'
+    | '/lucky-draw'
+    | '/properties/$slug'
+    | '/properties'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/amenities'
+    | '/compare'
     | '/contact'
     | '/gallery'
+    | '/lucky-draw'
     | '/properties'
+    | '/properties/$slug'
+    | '/properties/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AmenitiesRoute: typeof AmenitiesRoute
+  CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
-  PropertiesRoute: typeof PropertiesRoute
+  LuckyDrawRoute: typeof LuckyDrawRoute
+  PropertiesRoute: typeof PropertiesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -109,6 +163,13 @@ declare module '@tanstack/react-router' {
       path: '/properties'
       fullPath: '/properties'
       preLoaderRoute: typeof PropertiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lucky-draw': {
+      id: '/lucky-draw'
+      path: '/lucky-draw'
+      fullPath: '/lucky-draw'
+      preLoaderRoute: typeof LuckyDrawRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -123,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/amenities': {
@@ -146,17 +214,57 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/properties/': {
+      id: '/properties/'
+      path: '/'
+      fullPath: '/properties/'
+      preLoaderRoute: typeof PropertiesIndexRouteImport
+      parentRoute: typeof PropertiesRoute
+    }
+    '/properties/$slug': {
+      id: '/properties/$slug'
+      path: '/$slug'
+      fullPath: '/properties/$slug'
+      preLoaderRoute: typeof PropertiesSlugRouteImport
+      parentRoute: typeof PropertiesRoute
+    }
   }
 }
+
+interface PropertiesRouteChildren {
+  PropertiesSlugRoute: typeof PropertiesSlugRoute
+  PropertiesIndexRoute: typeof PropertiesIndexRoute
+}
+
+const PropertiesRouteChildren: PropertiesRouteChildren = {
+  PropertiesSlugRoute: PropertiesSlugRoute,
+  PropertiesIndexRoute: PropertiesIndexRoute,
+}
+
+const PropertiesRouteWithChildren = PropertiesRoute._addFileChildren(
+  PropertiesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AmenitiesRoute: AmenitiesRoute,
+  CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
-  PropertiesRoute: PropertiesRoute,
+  LuckyDrawRoute: LuckyDrawRoute,
+  PropertiesRoute: PropertiesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

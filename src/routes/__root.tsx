@@ -7,25 +7,35 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { MessageCircle, Home } from "lucide-react";
+import { company, whatsappGeneralUrl } from "@/lib/data";
 
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen flex-col items-center justify-center bg-forest-deep px-4 text-center text-cream">
+      <div className="max-w-md">
+        <h1 className="text-8xl font-black text-gold">404</h1>
+        <h2 className="mt-4 text-3xl font-bold">Oops! This page doesn't exist.</h2>
+        <p className="mt-4 text-lg text-cream/70">
+          But your dream villa does. Let's find it.
         </p>
-        <div className="mt-6">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3 text-lg font-black text-forest-deep transition-transform hover:scale-105"
           >
-            Go home
+            <Home size={20} /> Back to Home
           </Link>
+          <a
+            href={whatsappGeneralUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-gold px-8 py-3 text-lg font-black text-gold transition-transform hover:scale-105"
+          >
+            <MessageCircle size={20} /> WhatsApp Us
+          </a>
         </div>
       </div>
     </div>
@@ -55,12 +65,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a
-            href="/"
+          <Link
+            to="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -79,6 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Team Line Eco Resort — Luxury Villas from ₹39 Lakhs" },
       { property: "og:description", content: "Buy DTCP & RERA approved eco resort villas in Alair. Duplex, 2BHK & 1BHK villas starting ₹39 Lakhs with immediate rental income. 15 mins from Yadagirigutta. Call +91 94942 91924" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://teamlineecoresort.com" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Team Line Eco Resort — Luxury Villas from ₹39 Lakhs" },
       { name: "twitter:description", content: "DTCP & RERA approved eco resort villas in Alair starting ₹39 Lakhs." },
@@ -87,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
     ],
   }),
   shellComponent: RootShell,
