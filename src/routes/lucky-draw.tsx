@@ -49,7 +49,7 @@ function LuckyDrawPage() {
             <p className="text-xl text-muted-foreground max-w-2xl">Participate in our exclusive lucky draws and win life-changing prizes while investing in your dream home.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div 
               onClick={handleLuckyDrawClick}
               className="bg-paper border border-khaki/20 rounded-3xl hover:border-gold hover:scale-[1.03] hover:-translate-y-3 hover:shadow-[0_20px_50px_-12px_rgba(182,157,130,0.2)] transition-all duration-500 cursor-pointer group relative overflow-hidden"

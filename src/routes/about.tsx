@@ -27,7 +27,7 @@ function AboutPage() {
 
       {/* DESCRIPTION */}
       <section className="py-20 px-4">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-black text-forest">Who We Are</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -83,7 +83,7 @@ function AboutPage() {
       <section className="py-20 px-4">
         <div className="mx-auto max-w-6xl">
            <h2 className="text-3xl font-black text-forest text-center mb-12 uppercase tracking-widest">Project Highlights</h2>
-           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
              {layoutHighlights.map((h) => (
                <div key={h.title} className="bg-card border border-border rounded-xl p-6 hover:border-gold hover:shadow-lg transition-all group">
                  <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform">{h.icon}</span>
@@ -97,7 +97,7 @@ function AboutPage() {
 
       {/* CONTACT/LOCATION */}
       <section className="py-20 px-4 bg-forest text-cream">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-stretch">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           <div className="space-y-8">
             <h2 className="text-3xl font-black">Visit Our Office</h2>
             <div className="flex gap-4 items-start">

@@ -36,7 +36,7 @@ function PropertyDetailPage() {
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Back to Properties
         </Link>
 
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-10">
             {/* HERO */}
             <div className="space-y-6">
@@ -137,7 +137,7 @@ function PropertyDetailPage() {
             {/* FEATURES */}
             <div className="bg-forest-deep text-cream p-8 rounded-2xl">
               <h2 className="text-2xl font-black mb-6">What's Included</h2>
-              <div className="grid sm:grid-cols-2 gap-y-4 gap-x-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-10">
                 {projectFeatures.map((f) => (
                   <div key={f} className="flex items-start gap-3">
                     <div className="mt-1 bg-gold text-forest-deep rounded-full p-0.5">

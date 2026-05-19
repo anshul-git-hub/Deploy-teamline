@@ -177,7 +177,7 @@ function HomePage() {
       <section className="py-24 px-4 bg-secondary/40">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Our Properties" title="Choose Your Perfect Investment" subtitle="Thoughtfully designed homes and premium open plots built for living, leasing, and lasting value." />
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {properties.map((p, i) => (
               <div key={p.id} style={{ transitionDelay: `${i * 150}ms` }}>
                 <PropertyCard {...p} />
@@ -193,7 +193,7 @@ function HomePage() {
       <section className="py-24 px-4">
         <div className="mx-auto max-w-6xl">
           <SectionHeader eyebrow="Why Choose Us" title="A Premium Investment You Can Trust" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: "📍", t: "Prime Location", d: "On Hyderabad–Warangal Highway, 15 mins to Yadagirigutta Temple." },
               { icon: "🏛", t: "DTCP & RERA Approved", d: "Fully legal with bank loan facility available from all major banks." },
@@ -308,7 +308,7 @@ function HomePage() {
       <section className="py-24 px-4">
         <div className="mx-auto max-w-6xl">
           <SectionHeader eyebrow="Location" title="Strategically Connected" />
-          <div className="grid lg:grid-cols-2 gap-12 items-stretch mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mt-12">
             <div className="reveal reveal-left rounded-3xl overflow-hidden border-4 border-secondary shadow-2xl min-h-[400px]">
               <iframe
                 title="Map"

@@ -26,7 +26,7 @@ function PropertiesPage() {
 
       <section className="py-20 px-4">
         <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {properties.map((p, i) => (
               <div key={p.id} className="reveal reveal-up" style={{ transitionDelay: `${i * 150}ms` }}>
                 <PropertyCard {...p} detailed />
@@ -39,7 +39,7 @@ function PropertiesPage() {
       <section className="py-20 px-4 bg-secondary/30">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-black text-forest mb-6">Investment Benefits</h2>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div className="p-6 bg-card rounded-2xl shadow-sm">
               <div className="text-4xl mb-4">📈</div>
               <h3 className="font-bold text-forest uppercase tracking-widest text-xs mb-2">High Appreciation</h3>
