@@ -1,8 +1,5 @@
 {
-  "buildCommand": "npm run build && mkdir -p dist && cp -r dist/client/* dist/ || true",
-  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/(.*)", "destination": "/api/index.js" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
