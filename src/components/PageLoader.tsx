@@ -1,16 +1,25 @@
 import { useState, useEffect } from "react";
 
 export function PageLoader() {
+  const [mounted, setMounted] = useState(true);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const fadeTimer = setTimeout(() => {
       setVisible(false);
-    }, 1500);
-    return () => clearTimeout(timer);
+    }, 1200);
+    
+    const unmountTimer = setTimeout(() => {
+      setMounted(false);
+    }, 1900);
+    
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(unmountTimer);
+    };
   }, []);
 
-  if (!visible) return null;
+  if (!mounted) return null;
 
   const text = "TEAM LINE ECO RESORT";
 
