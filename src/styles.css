@@ -122,11 +122,12 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { font-family: var(--font-sans); scroll-behavior: smooth; }
+  html { font-family: var(--font-sans); scroll-behavior: smooth; overflow-x: hidden; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
   h1, h2, h3, h4 { font-weight: 700; }
 }
