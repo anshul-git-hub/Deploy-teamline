@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { EMICalculator } from "@/components/EMICalculator";
 import { properties, projectFeatures, company, galleryItems } from "@/lib/data";
 import { Phone, MessageCircle, Check, ArrowLeft, Camera } from "lucide-react";
@@ -30,7 +30,7 @@ function PropertyDetailPage() {
   if (!p) return <div>Property not found</div>;
 
   return (
-    <Layout>
+    <>
       <div className="mx-auto max-w-7xl px-4 py-8">
         <Link to="/properties" className="inline-flex items-center gap-2 text-forest font-bold hover:text-gold transition-colors mb-6 group">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Back to Properties
@@ -190,6 +190,6 @@ function PropertyDetailPage() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

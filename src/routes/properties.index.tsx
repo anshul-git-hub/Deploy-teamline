@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { properties } from "@/lib/data";
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/properties/")({
 
 function PropertiesPage() {
   return (
-    <Layout>
+    <>
       <section className="bg-forest text-cream py-16 px-4 text-center">
         <h1 className="text-4xl md:text-6xl font-black">Our <span className="text-gold">Villas</span></h1>
         <p className="mt-4 text-cream/80 max-w-2xl mx-auto font-medium">
@@ -58,6 +58,6 @@ function PropertiesPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

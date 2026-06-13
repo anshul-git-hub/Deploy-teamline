@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { useState, useEffect } from "react";
 import { Gift, ChevronRight, X } from "lucide-react";
 
@@ -41,7 +41,7 @@ function LuckyDrawPage() {
   };
 
   return (
-    <Layout>
+    <>
       <div className="pt-24 pb-32 px-4 bg-background min-h-screen">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
@@ -109,6 +109,6 @@ function LuckyDrawPage() {
           </div>
         </div>
       )}
-    </Layout>
+    </>
   );
 }

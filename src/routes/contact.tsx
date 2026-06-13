@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Layout } from "@/components/Layout";
+
 import { company } from "@/lib/data";
 import { Phone, MessageCircle, MapPin, Send } from "lucide-react";
 
@@ -26,7 +26,7 @@ function ContactPage() {
   };
 
   return (
-    <Layout>
+    <>
       <section className="bg-forest text-cream py-16 px-4 text-center">
         <h1 className="text-4xl md:text-6xl font-black">Get in <span className="text-gold">Touch</span></h1>
         <p className="mt-4 text-cream/80 max-w-2xl mx-auto font-medium">We'd love to help you find your perfect villa and answer any questions.</p>
@@ -119,6 +119,6 @@ function ContactPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

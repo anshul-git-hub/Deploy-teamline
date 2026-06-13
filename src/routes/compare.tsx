@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { properties } from "@/lib/data";
 import { Check } from "lucide-react";
 
@@ -28,7 +28,7 @@ function ComparePage() {
   ];
 
   return (
-    <Layout>
+    <>
       <section className="bg-forest text-cream py-16 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-black">Compare <span className="text-gold">Villas</span></h1>
         <p className="mt-4 text-cream/80 max-w-2xl mx-auto">
@@ -100,6 +100,6 @@ function ComparePage() {
           </table>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

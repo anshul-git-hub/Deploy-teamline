@@ -6,9 +6,11 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ScrollRestoration,
 } from "@tanstack/react-router";
 import { MessageCircle, Home } from "lucide-react";
 import { company, whatsappGeneralUrl } from "@/lib/data";
+import { Layout } from "@/components/Layout";
 
 import appCss from "../styles.css?url";
 
@@ -109,15 +111,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
+    <>
+      <HeadContent />
+      {children}
+      <ScrollRestoration />
+      <Scripts />
+    </>
   );
 }
 
@@ -126,7 +125,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Layout>
+        <Outlet />
+      </Layout>
     </QueryClientProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Layout } from "@/components/Layout";
+
 import { PropertyCard } from "@/components/PropertyCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CTABanner } from "@/components/CTABanner";
@@ -39,7 +39,7 @@ function HomePage() {
   }, []);
 
   return (
-    <Layout>
+    <>
       {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center bg-forest-deep text-cream overflow-hidden">
         {/* VIDEO BACKGROUND */}
@@ -338,6 +338,6 @@ function HomePage() {
       <div className="reveal reveal-zoom">
         <CTABanner />
       </div>
-    </Layout>
+    </>
   );
 }

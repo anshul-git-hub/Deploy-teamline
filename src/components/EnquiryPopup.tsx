@@ -6,18 +6,31 @@ export function EnquiryPopup() {
   const [form, setForm] = useState({ name: "", phone: "" });
 
   useEffect(() => {
-    const hasShown = sessionStorage.getItem("enquiry_popup_shown");
+    let hasShown = false;
+    try {
+      hasShown = !!sessionStorage.getItem("enquiry_popup_shown");
+    } catch (e) {
+      console.warn("sessionStorage is not available:", e);
+    }
     if (hasShown) return;
 
     const timer = setTimeout(() => {
       setOpen(true);
-      sessionStorage.setItem("enquiry_popup_shown", "true");
+      try {
+        sessionStorage.setItem("enquiry_popup_shown", "true");
+      } catch (e) {
+        console.warn("Failed to save to sessionStorage:", e);
+      }
     }, 30000);
 
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY < 10) {
         setOpen(true);
-        sessionStorage.setItem("enquiry_popup_shown", "true");
+        try {
+          sessionStorage.setItem("enquiry_popup_shown", "true");
+        } catch (e) {
+          console.warn("Failed to save to sessionStorage:", e);
+        }
         document.removeEventListener("mouseleave", handleMouseLeave);
       }
     };

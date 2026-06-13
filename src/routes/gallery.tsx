@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Layout } from "@/components/Layout";
+
 import { CTABanner } from "@/components/CTABanner";
 import { galleryItems, type GalleryCategory } from "@/lib/data";
 import { ChevronLeft, ChevronRight, X, Camera, Image as ImageIcon } from "lucide-react";
@@ -30,7 +30,7 @@ function GalleryPage() {
   const next = () => setActiveIdx((i) => (i === null ? null : (i + 1) % items.length));
 
   return (
-    <Layout>
+    <>
       <section className="bg-ink text-bone py-20 px-4 text-center">
         <h1 className="text-4xl md:text-6xl font-black tracking-tight">Our Project <span className="text-khaki italic font-serif">Gallery</span></h1>
         <p className="mt-4 text-bone/60 max-w-2xl mx-auto font-medium uppercase tracking-widest text-[10px]">
@@ -130,6 +130,6 @@ function GalleryPage() {
       )}
 
       <CTABanner />
-    </Layout>
+    </>
   );
 }

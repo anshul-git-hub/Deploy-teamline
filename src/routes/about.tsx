@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { company, trustBadges, layoutHighlights } from "@/lib/data";
 import { MapPin, Phone, MessageCircle, Target, Award, Users } from "lucide-react";
 
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   return (
-    <Layout>
+    <>
       {/* HERO */}
       <section className="bg-forest-deep text-cream py-20 px-4 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--color-gold)_0%,_transparent_70%)]" />
@@ -126,6 +126,6 @@ function AboutPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

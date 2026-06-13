@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout } from "@/components/Layout";
+
 import { amenities, projectFeatures } from "@/lib/data";
 import { Camera, CheckCircle2 } from "lucide-react";
 import { GallerySlider } from "@/components/GallerySlider";
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/amenities")({
 
 function AmenitiesPage() {
   return (
-    <Layout>
+    <>
       <section className="bg-ink text-bone py-20 px-4 text-center">
         <h1 className="text-4xl md:text-6xl font-black tracking-tight">Resort <span className="text-khaki italic font-serif">Amenities</span></h1>
         <p className="mt-4 text-bone/60 max-w-2xl mx-auto font-medium uppercase tracking-widest text-[10px]">
@@ -107,6 +107,6 @@ function AmenitiesPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
