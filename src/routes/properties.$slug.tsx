@@ -42,10 +42,12 @@ function PropertyDetailPage() {
             <div className="space-y-6">
               <div
                 id={`hero-img-${p.id}`}
-                className="w-full h-[400px] bg-muted shimmer rounded-2xl flex flex-col items-center justify-center text-muted-foreground gap-3 border border-border overflow-hidden"
+                className="w-full h-[400px] bg-muted shimmer rounded-2xl flex flex-col items-center justify-center text-muted-foreground gap-3 border border-border overflow-hidden relative"
               >
                 {/* REPLACE WITH CLIENT PHOTO */}
-                {(p as any).image ? (
+                {(p as any).images ? (
+                  <GallerySlider images={(p as any).images} alt={p.name} />
+                ) : (p as any).image ? (
                   <img src={(p as any).image} alt={p.name} className="w-full h-full object-cover" />
                 ) : (
                   <>
@@ -118,8 +120,17 @@ function PropertyDetailPage() {
                       className="min-w-[280px] md:min-w-0 md:flex-1 aspect-[4/3] bg-muted shimmer rounded-xl flex flex-col items-center justify-center text-muted-foreground gap-2 border border-border snap-start overflow-hidden relative"
                     >
                       {/* REPLACE WITH CLIENT PHOTO */}
-                      {label === "Front View" && (p as any).image ? (
-                        <img src={(p as any).image} alt={`${p.name} Front View`} className="w-full h-full object-cover" />
+                      {label === "Front View" ? (
+                        (p as any).images ? (
+                          <GallerySlider images={(p as any).images} alt={`${p.name} Front View`} />
+                        ) : (p as any).image ? (
+                          <img src={(p as any).image} alt={`${p.name} Front View`} className="w-full h-full object-cover" />
+                        ) : (
+                          <>
+                            <Camera size={32} />
+                            <span className="text-sm font-bold">{label}</span>
+                          </>
+                        )
                       ) : galleryItem && (galleryItem as any).images ? (
                         <GallerySlider images={(galleryItem as any).images} alt={`${p.name} ${label}`} />
                       ) : (

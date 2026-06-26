@@ -28,6 +28,10 @@ export const properties = [
     badge: "Most Popular",
     imgId: "property-duplex",
     image: "/assets/villas/duplex-render.jpg",
+    images: [
+      "/assets/villas/duplex-render.jpg",
+      "/assets/villas/duplex-construction.jpg"
+    ],
     whatsappUrl: "https://wa.me/919494291924?text=Hi%20Team%20Line%2C%20I%20am%20interested%20in%20the%20Duplex%20Villa%20(1250%20Sft%2C%20%E2%82%B965%20Lakhs).%20Please%20share%20more%20details.",
     features: [
       "Spacious duplex layout",
@@ -95,8 +99,8 @@ export const properties = [
     type: "Plot",
     builtUp: "N/A",
     land: "165 Sq. Yards",
-    price: "₹25 Lakhs",
-    priceRaw: 2500000,
+    price: "₹16,000 / Sq. Yard",
+    priceRaw: 2640000,
     rental: "No Rental Income",
     rentalYearly: "N/A",
     roi: "N/A",
